@@ -16,6 +16,7 @@ def calc(t):
     print(f'TODO{t.tag}')
 　　return　0
 
-t = parser('1+2*3+4*5')
-print(repr(t))
-print(clac(t))
+def main():
+    s = input('$ ')
+    t = parser(s)
+    print(clac(t))
