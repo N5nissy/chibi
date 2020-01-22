@@ -1,10 +1,7 @@
-n = int(input())
-k = int(input())
-for i in range(k):
-    a, b = map(int, input().split())
-    if min(a, b, n-a+1, n-b+1)%3 == 0:
-        print(3)
-    elif min(a, b, n-a+1, n-b+1)%3 == 1:
-        print(1)
-    else:
-        print(2)
+n,m=map(int,input().split())
+s=x=0
+for i in range(m):
+    a,b=map(int,input().split())
+    if n-a>0:s+=n-a
+    if n-a>x:x=n-a
+print(s-x)
