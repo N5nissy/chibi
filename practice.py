@@ -1,11 +1,9 @@
+import itertools
+
 if __name__ == '__main__':
 
-	input()
-	A = set(map(int,input().split()))
-	input()
-	B = set(map(int,input().split()))
+	n = int(input())
+	seq = list(itertools.permutations(range(1,n+1)))
 
-	C = sorted(A^B)
-
-	for i in C:
-		print(i)
+	for p in seq:
+		print(*p)
