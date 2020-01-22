@@ -1,6 +1,10 @@
-data = {}
-for i in range(int(input())):
-	p,n = input().split();
-	data[p] = data.get(p,0) + int(n)
-for i, j in sorted([[len(a),a] for a in data.keys()]):
-    print (j, data[j])
+import math
+n=int(input())
+a=list(map(int,input().split()))
+a_s=list(set(a))
+while len(a_s)!=1:
+    gcd=math.gcd(a_s[-1],a_s[-2])
+    lcm=int(a_s[-1]*a_s[-2]/gcd)
+    a_s=a_s[:-2]
+    a_s.append(lcm)
+print(a_s[0])
