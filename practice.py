@@ -1,15 +1,14 @@
-n, p = map(int, input().split())
-ps = []
-for i in range(n):
-    ps.append(input().split())
-    ps[i][1] = int(ps[i][1])
-t = 0
-while len(ps) > 0:
-    if ps[0][1] > p:
-        ps.append([ps[0][0], ps[0][1] - p])
-        t += p
-        ps.pop(0)
-    else:
-        t += ps[0][1]
-        print("{0} {1}".format(ps[0][0], t))
-        ps.pop(0)
+n = int(input())
+
+li = [int(input()) for i in range(n)]
+
+ans = 0
+for a in li:
+    flag = True
+    for i in range(2, int(a**0.5)+1):
+        if a % i == 0:
+            flag = False
+            break
+    if flag:
+        ans += 1
+print(ans)
