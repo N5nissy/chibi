@@ -1,20 +1,9 @@
-def main():
-    a = []
-    b = []
-    for _ in range(10):
-        a.append(int(input()))
-    for _ in range(10):
-        b.append(int(input()))
-    a.sort(reverse = True)
-    b.sort(reverse = True)
+def sec(h,m,s):
+	return 3600*h+60*m+s
 
-    aa = 0
-    bb = 0
-    for x in range(3):
-        aa += a[x]
-        bb += b[x]
+def hms(sec):
+	return f"{sec//3600} {(sec//60)%60} {sec%60}"
 
-    print(aa, bb)
-
-if __name__ == "__main__":
-    main()
+for i in range(3):
+	h,m,s,H,M,S=map(int,input().split())
+	print(hms(sec(H,M,S)-sec(h,m,s)))
