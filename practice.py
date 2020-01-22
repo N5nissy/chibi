@@ -1,20 +1,15 @@
-while True:
-    h,w = map(int,input().split())
-    if(h+w == 0):
-        break
-    li = list()
-    for i in range(h):
-        s = input()
-        li.append(s)
-    d = dict()
-    for i,l in enumerate(li):
-        for j,char in enumerate(l):
-            d[char] = (i,j)
-    target = input()
-    ans = 0
-    now = (0,0)
-    for t in target:
-        next = d[t]
-        ans += abs(now[0]-next[0]) + abs(now[1]-next[1])
-        now=next
-    print(ans + len(target))
+n, p = map(int, input().split())
+ps = []
+for i in range(n):
+    ps.append(input().split())
+    ps[i][1] = int(ps[i][1])
+t = 0
+while len(ps) > 0:
+    if ps[0][1] > p:
+        ps.append([ps[0][0], ps[0][1] - p])
+        t += p
+        ps.pop(0)
+    else:
+        t += ps[0][1]
+        print("{0} {1}".format(ps[0][0], t))
+        ps.pop(0)
