@@ -1,13 +1,10 @@
-q = int(input())
-
-l = []
-for _ in range(q):
-    a = input().split()
-    if a[0] == "2":
-        l.pop()
+n = int(input())
+k = int(input())
+for i in range(k):
+    a, b = map(int, input().split())
+    if min(a, b, n-a+1, n-b+1)%3 == 0:
+        print(3)
+    elif min(a, b, n-a+1, n-b+1)%3 == 1:
+        print(1)
     else:
-        m,q = map(int, a)
-        if m == 0:
-            l.append(q)
-        else:
-            print(l[q])
+        print(2)
