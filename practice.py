@@ -1,10 +1,12 @@
+num = int(input())
+L = [int(x) for x in input().split()]
+L.append(2020)
+input()
+s = [int(x)-1 for x in input().split()]
 
-n = int(input())
-a = list(map(int, input().split()))
-q = int(input())
-for i in range(q):
-  c, b, e = list(map(int, input().split()))
-  if c==0:
-    print(min(a[b:e]))
-  else:
-    print(max(a[b:e]))
+for i in s:
+    if L[i+1] > L[i] +1:
+        L[i] += 1
+
+for i in range(len(L) -1):
+    print(L[i])
