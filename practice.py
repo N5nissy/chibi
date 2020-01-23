@@ -1,17 +1,15 @@
-n = int(input())
-alist = list(map(int, input().split()))
-
-ans = 0
-cnt = 0
-while alist != []:
-    a = alist.pop(0)
-
-    if a == 1:
-        cnt += 1
-    else:
-        cnt = 0
-
-    if cnt > ans:
-        ans = cnt
-
-print(ans + 1)
+import sys
+cin = sys.stdin
+while True:
+    n = int(cin.readline())
+    if n == 0:break
+    c = {}
+    for _ in range(n):
+        a,b = cin.readline().strip().split()
+        c[a] = b
+    m = int(cin.readline())
+    ans = ''
+    for _ in range(m):
+        a = cin.readline().strip()
+        ans+=c[a] if a in c else a
+    print(ans)
