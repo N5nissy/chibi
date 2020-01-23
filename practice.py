@@ -1,15 +1,24 @@
-string = input()
+r, c = map(int, input().split())
 
-n = int(input())
+mat = [[0 for i in range(c+1)] for j in range(r+1)]
+for i in range(r):
+    mat[i] = list(map(int, input().split()))
 
-for i in range(n):
-    command = input().split()
-    c_n = command[0]
-    c_i1 = int(command[1])
-    c_i2 = int(command[2]) + 1
-    if c_n == "print":
-        print(string[c_i1:c_i2])
-    elif c_n == "reverse":
-        string = string[:c_i1] + string[c_i1:c_i2][::-1] + string[c_i2:]
-    else:
-        string = string[:c_i1] + command[3] + string[c_i2:]
+for i in range(r):
+    s = sum(mat[i])
+    mat[i].append(s)
+
+for j in range(c):
+    s = 0
+    for i in range(r):
+        s += mat[i][j]
+    mat[r][j] = s
+
+mat[r][c] = (sum(mat[r]))
+
+for i in range(r+1):
+    for j in range(c+1):
+        if j == c:
+            print(str(mat[i][j]))
+        else:
+            print(str(mat[i][j]) + " ", end="")
