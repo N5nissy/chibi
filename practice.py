@@ -1,12 +1,17 @@
-num = int(input())
-L = [int(x) for x in input().split()]
-L.append(2020)
-input()
-s = [int(x)-1 for x in input().split()]
+n = int(input())
+alist = list(map(int, input().split()))
 
-for i in s:
-    if L[i+1] > L[i] +1:
-        L[i] += 1
+ans = 0
+cnt = 0
+while alist != []:
+    a = alist.pop(0)
 
-for i in range(len(L) -1):
-    print(L[i])
+    if a == 1:
+        cnt += 1
+    else:
+        cnt = 0
+
+    if cnt > ans:
+        ans = cnt
+
+print(ans + 1)
