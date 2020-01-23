@@ -1,5 +1,23 @@
-d=input().split()
-for _ in range(int(input())):
- t,f=[d.index(s)for s in input().split()]
- n=[(1,2,4,3,1),(0,3,5,2,0),(0,1,5,4,0),(1,0,4,5,1),(0,2,5,3,0),(1,3,4,2,1)][t]
- print(d[n[n.index(f)+1]])
+def selection_sort(A):
+    count = 0
+    for i in range(len(A)):
+        minv = 101
+        minj = -1
+        for j in range(i, len(A)):
+            if minv > A[j]:
+                minv = A[j]
+                minj = j
+        if A[i] != A[minj]:
+            A[i], A[minj] = A[minj], A[i]
+            count += 1
+
+    return count
+
+
+n = int(input())
+A = [int(x) for x in input().split()]
+
+count = selection_sort(A)
+
+print(' '.join([str(x) for x in A]))
+print(count)
